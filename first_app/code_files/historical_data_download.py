@@ -5,7 +5,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from kiteconnect import KiteConnect
-from zerodha_config import api_key, api_secret
+from first_app.zerodha_config import api_key
 import datetime as dt
 import pandas as pd
 import json
