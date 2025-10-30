@@ -1,20 +1,21 @@
 import os
 from first_app.code_files.historical_data_download import ZerodhaHistoricalData
 from first_app.code_files.indicators import ZerodhaIndicators
+from first_app.constants import *
 from first_app.code_files.visualize_indicators import plot_rsi
 
-hist_data_obj = ZerodhaHistoricalData(token_file='zerodha_tokens.json')
+hist_data_obj = ZerodhaHistoricalData()
 
 ticker = "RPOWER"
 # ticker = "HINDZINC"
 inception_date = "01-01-2025"
 interval = "5minute"
-output_folder  = "historical_data"
-output_file = f"{output_folder}/{ticker}.csv"
 
-os.makedirs(output_folder, exist_ok=True)
+output_file = f"{historical_data_folder}/{ticker}.csv"
+indicator_file_name = f"{historical_data_folder}/{ticker}_with_indicators.csv"
 
-indicator_file_name = f"{output_folder}/{ticker}_with_indicators.csv"
+os.makedirs(historical_data_folder, exist_ok=True)
+
 
 ohlc = hist_data_obj.fetch_ohlc(
     ticker = ticker,
