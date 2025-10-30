@@ -1,0 +1,11 @@
+
+# Initial Zerodha Configuration
+zerodha_config.py
+
+# Secondary Zerodha Configuration
+zerodha_tokens.json
+
+# Historical Data Folder
+historical_data
+
+__pycache__
