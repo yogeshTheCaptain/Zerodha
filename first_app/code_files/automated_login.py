@@ -13,6 +13,9 @@ import time
 from datetime import datetime
 from pathlib import Path
 
+# Import your config
+from first_app.zerodha_config import api_key, api_secret, user_id, password, totp_key
+
 
 class ZerodhaAutoLogin:
     """
@@ -254,9 +257,7 @@ class ZerodhaAutoLogin:
 
 # Example usage
 if __name__ == "__main__":
-    # Import your config
-    from zerodha_config import api_key, api_secret, user_id, password, totp_key
-    
+
     # Initialize login handler
     zerodha = ZerodhaAutoLogin(
         api_key=api_key,
