@@ -9,11 +9,10 @@ from pathlib import Path
 # Add parent directory to path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from code_files.indicators import ZerodhaIndicators
+from first_app.code_files.indicators import ZerodhaIndicators
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from datetime import datetime
 
 
 def plot_price_with_sma(csv_file, num_candles=100):
