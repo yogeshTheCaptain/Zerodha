@@ -12,9 +12,9 @@ import json
 import time
 from datetime import datetime
 from pathlib import Path
-
+from first_app.constants import *
 # Import your config
-from first_app.zerodha_config import api_key, api_secret, user_id, password, totp_key
+from first_app.zerodha_config import *
 
 
 class ZerodhaAutoLogin:
@@ -23,8 +23,13 @@ class ZerodhaAutoLogin:
     Handles login, TOTP, and token generation/storage.
     """
     
-    def __init__(self, api_key, api_secret, user_id, password, totp_key, 
-                 token_file='zerodha_tokens.json', headless=False):
+    def __init__(self, 
+                 api_key, 
+                 api_secret, 
+                 user_id, 
+                 password, 
+                 totp_key, 
+                 headless=False):
         """
         Initialize ZerodhaAutoLogin
         
@@ -42,7 +47,7 @@ class ZerodhaAutoLogin:
         self.user_id = user_id
         self.password = password
         self.totp_key = totp_key
-        self.token_file = token_file
+        self.token_file = zerodha_token_file
         self.headless = headless
         
         # Initialize KiteConnect
@@ -222,7 +227,7 @@ class ZerodhaAutoLogin:
             print("No access token available")
     
     @staticmethod
-    def load_tokens(token_file='zerodha_tokens.json'):
+    def load_tokens():
         """
         Load tokens from JSON file
         
@@ -232,12 +237,12 @@ class ZerodhaAutoLogin:
         Returns:
             dict: Token data or None if file doesn't exist
         """
-        token_path = Path(token_file)
+        token_path = Path(zerodha_token_file)
         if token_path.exists():
-            with open(token_file, 'r') as f:
+            with open(zerodha_token_file, 'r') as f:
                 return json.load(f)
         else:
-            print(f"Token file {token_file} not found")
+            print(f"Token file {zerodha_token_file} not found")
             return None
     
     def get_kite_instance(self):
@@ -265,7 +270,6 @@ if __name__ == "__main__":
         user_id=user_id,
         password=password,
         totp_key=totp_key,
-        token_file='zerodha_tokens.json',
         headless=True  # Set to True to run without browser window
     )
     
