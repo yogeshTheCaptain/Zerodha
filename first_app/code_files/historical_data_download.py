@@ -9,6 +9,7 @@ from first_app.zerodha_config import api_key
 import datetime as dt
 import pandas as pd
 import json
+from first_app.constants import *
 
 
 class ZerodhaHistoricalData:
@@ -16,14 +17,14 @@ class ZerodhaHistoricalData:
     Class to download historical data from Zerodha Kite API
     """
     
-    def __init__(self, token_file='zerodha_tokens.json'):
+    def __init__(self):
         """
         Initialize ZerodhaHistoricalData
         
         Args:
             token_file (str): Path to the token file
         """
-        self.token_file = token_file
+        self.token_file = zerodha_token_file
         self.kite = None
         self.instrument_df = None
         self._initialize_kite()
