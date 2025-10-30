@@ -38,8 +38,8 @@ totp_key = "totp_secret_key"
 
 ## Run Python File
 ```
-python -m code_files.automated_login   
+python -m first_app.code_files.automated_login
 
-python -m code_files.process_data       
+python -m first_app.code_files.process_data       
 ```
 
